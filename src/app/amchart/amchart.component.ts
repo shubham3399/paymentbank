@@ -10,8 +10,7 @@ import am5themes_Animated from "@amcharts/amcharts5/themes/Animated";
   styleUrls: ['./amchart.component.css']
 })
 export class AmchartComponent implements OnInit {
-@Input() value2: any;
-
+  @Input() value2: any ;
   constructor() {
     console.log(this.value2);
     let root = am5.Root.new("chartdiv");
@@ -34,12 +33,12 @@ export class AmchartComponent implements OnInit {
     let data = [
       {
         year: "NOV'21",
-        value: this.value2,
+        value: 580,
         strokeSettings: {
           stroke: colorSet.getIndex(0)
         },
         fillSettings: {
-          fill: colorSet.getIndex(11),
+          fill: colorSet.getIndex(15),
         },
         bulletSettings: {
           fill: colorSet.getIndex(0)
@@ -47,7 +46,7 @@ export class AmchartComponent implements OnInit {
       },
       {
         year: "DEC'21",
-        value: this.value2,
+        value: 565,
         bulletSettings: {
           fill: colorSet.getIndex(0)
         },
@@ -61,7 +60,7 @@ export class AmchartComponent implements OnInit {
 
       {
         year: "JAN'21",
-        value: this.value2,
+        value: 550,
         strokeSettings: {
           stroke: colorSet.getIndex(12)
         },
@@ -128,7 +127,7 @@ export class AmchartComponent implements OnInit {
 
     series.fills.template.setAll({
       visible: true,
-      fillOpacity: 0.4,
+      fillOpacity: 0.2,
       templateField: "fillSettings"
     });
 
