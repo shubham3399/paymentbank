@@ -20,7 +20,7 @@
 }
 .account{
     font-size: 16px;
-    margin-top: 40px;
+    margin-top: 30px;
     opacity:.7;
     text-align: center;
     margin-bottom: 15px;
@@ -65,6 +65,7 @@
     color:white;
     text-align: center;
     text-decoration: none;
+    font-weight: 700;
 }
 .drop_2:hover{
     background-color: #4f4d64;
@@ -91,7 +92,8 @@
 
 #chartdiv {
     width: 100%;
-    height: 180px;
+    height: 340px;
+    color: white;
 }
 
 .radio-cont {
@@ -181,7 +183,7 @@ input::-webkit-inner-spin-button {
 .lower-para{
     padding:0px 0px 0px 20px;
     border: solid 2px rgba(244, 244, 244, 0.1);
-    border-radius: 10px;
+    border-radius: 5px;
     border-top: none;
 }
 .headline{
@@ -202,24 +204,25 @@ input::-webkit-inner-spin-button {
     bottom: 15px;
     border-radius: 4px;
     background-image: -webkit-gradient(linear, left bottom, left top, from(#3eb7e5), to(#23dbbd));
-   
     font-weight: 600;
 }
 .innervalue1{
     text-align: end;
 }
 .leftcode{
-    padding: 20px 0px 0px 20px;
+    padding: 20px 0px 0px 50px;
 }
 .rightcode{
-    float: right;
+    text-align: end;
+    padding:0px 20px 0px 0px;
 }
 .cibildata{
     font-size: 12px;
-    padding:0px 10px 0px 0px;
+    text-align: end;
 }
 .currentdata{
     font-size:48px;
+    text-align: end;
 }
 .currentoutoff{
     font-size: 18px;
@@ -227,13 +230,23 @@ input::-webkit-inner-spin-button {
 .currentoutofftheory{
     font-size: 12px;
     text-align: end;
-    padding:0px 25px 0px 0px;
+}
+.currentoutofftheory1{
+    font-size: 12px;
+    text-align: end;
+    color:rgb(235, 235, 37);
 }
 .amchart{
-    height:200px;
+    height:186px;
 }
 .creditscore{
     text-align: center;
     font-size: 12px;
     opacity: .7;
+}
+.abc{
+    background-color:#23dbbd;
+}
+.greentick{
+    padding:0px 10px 0px 0px;
 }

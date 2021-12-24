@@ -22,7 +22,7 @@
           <div class="rightsidedetail">
             <span class="tabsHeader"> Have a query ? </span>
             <span class="tabsHeader"> FAQs </span>
-            <span class="tabsHeader" (click)="open=!open">
+            <span class="tabsHeader" (click)="openGlobe()">
               <i class='fa fa-globe fa-2x' style="color: #5b5a99"></i>
             </span>
             <div *ngIf="open" class="dropdown-content">
@@ -78,43 +78,43 @@
           <div class="leftcode">
             <p>MAKE PAYMENT</p>
           </div>
-          <div class="rightcode">       
+          <div class="rightcode">
             <p class="cibildata">PROJECTED CIBIL SCORE</p>
             <div *ngIf="selectedState == constFirst">
-              
-              <span class="currentdata">560</span> <span class="currentoutoff"> / 900</span>
+
+              <span class="currentdata"> {{values[0]}}</span> <span class="currentoutoff"> / 900</span>
               <p class="currentoutofftheory">NPA</p>
             </div>
             <div *ngIf="selectedState == constSecond">
-              <span class="currentdata">580</span> <span class="currentoutoff"> / 900</span>
+              <span class="currentdata">{{values[1]}}</span> <span class="currentoutoff"> / 900</span>
               <p class="currentoutofftheory">LIVE</p>
             </div>
             <div *ngIf="selectedState == constThird">
-              <span class="currentdata">585</span> <span class="currentoutoff"> / 900</span>
+              <span class="currentdata">{{values[2]}}</span> <span class="currentoutoff"> / 900</span>
               <p class="currentoutofftheory">CLOSED</p>
             </div>
             <div *ngIf="selectedState == constFourth">
-              <span class="currentdata">575</span> <span class="currentoutoff"> / 900</span>
-              <p class="currentoutofftheory"> POST WRITE-OFF: SETTLED </p>
+              <span class="currentdata">{{values[3]}}</span> <span class="currentoutoff"> / 900</span>
+              <p class="currentoutofftheory1"> POST WRITE-OFF: SETTLED </p>
             </div>
             <div *ngIf="selectedState == constFifth">
-              <span class="currentdata">538</span> <span class="currentoutoff"> / 900</span>
+              <span class="currentdata">{{values[4]}}</span> <span class="currentoutoff"> / 900</span>
               <p class="currentoutofftheory">NPA</p>
             </div>
           </div>
         </div>
+        <br>
         <div class="amchart">
-          <app-amchart ></app-amchart>
-          
+         <app-amchart [value2]="value1"></app-amchart>
         </div>
         <p class="creditscore">YOUR CREDIT SCORE</p>
-        <br>
+
         <div class="radiobutton">
           <form class="formdata">
-            <label class="radio-cont ng-star-inserted" (click)="selectedPane(constFirst)">
-              <input type="radio" class="radio-selector" id="a2" name="date" (click)="tick1()">
+            <div class="radio-cont ng-star-inserted" (click)="selectedPane(constFirst,0)">
+              <input type="radio" class="radio-selector" id="a2" name="date">
               <label for="a2" class="checkmark">
-                <div class="div" id="select1"></div>
+                <div class="div" [ngClass]="{'abc': selectedState == constFirst}"></div>
                 <div class="changedata">
                   <p class="sboxhead"> Single EMI Due </p>
                   <p class="amount">
@@ -122,11 +122,11 @@
                   </p>
                 </div>
               </label>
-            </label>
-            <label class="radio-cont ng-star-inserted" (click)="selectedPane(constSecond)">
-              <input type="radio" class="radio-selector" id="a3" name="date" (click)="tick2()">
+            </div>
+            <div class="radio-cont ng-star-inserted" (click)="selectedPane(constSecond,1)">
+              <input type="radio" class="radio-selector" id="a3" name="date">
               <label for="a3" class="checkmark">
-                <div class="div" id="select2"></div>
+                <div class="div" [ngClass]="{'abc': selectedState == constSecond}"></div>
                 <div class="changedata">
                   <p class="sboxhead"> Total EMI's Due </p>
                   <p class="amount">
@@ -134,11 +134,11 @@
                   </p>
                 </div>
               </label>
-            </label>
-            <label class="radio-cont ng-star-inserted" (click)="selectedPane(constThird)">
-              <input type="radio" class="radio-selector" id="a4" name="date" (click)="tick3()">
+            </div>
+            <div class="radio-cont ng-star-inserted" (click)="selectedPane(constThird,2)">
+              <input type="radio" class="radio-selector" id="a4" name="date">
               <label for="a4" class="checkmark">
-                <div class="div" id="select3"></div>
+                <div class="div" [ngClass]="{'abc': selectedState == constThird}"></div>
                 <div class="changedata">
                   <p class="sboxhead"> Total Outstanding </p>
                   <p class="amount">
@@ -146,11 +146,11 @@
                   </p>
                 </div>
               </label>
-            </label>
-            <label class="radio-cont ng-star-inserted" (click)="selectedPane(constFourth)">
-              <input type="radio" class="radio-selector" id="a5" name="date" (click)="tick4()">
+            </div>
+            <div class="radio-cont ng-star-inserted" (click)="selectedPane(constFourth,3)">
+              <input type="radio" class="radio-selector" id="a5" name="date">
               <label for="a5" class="checkmark">
-                <div class="div" id="select4"></div>
+                <div class="div" [ngClass]="{'abc': selectedState == constFourth}"></div>
                 <div class="changedata">
                   <p class="sboxhead"> Settle Amount </p>
                   <p class="amount">
@@ -158,11 +158,11 @@
                   </p>
                 </div>
               </label>
-            </label>
-            <label class="radio-cont ng-star-inserted" (click)="selectedPane(constFifth)">
-              <input type="radio" class="radio-selector" id="a6" name="date" (click)="tick5()">
+            </div>
+            <div class="radio-cont ng-star-inserted" (click)="selectedPane(constFifth,4)">
+              <input type="radio" class="radio-selector" id="a6" name="date">
               <label for="a6" class="checkmark">
-                <div class="div" id="select5"></div>
+                <div class="div" [ngClass]="{'abc': selectedState == constFifth}"></div>
                 <div class="changedata">
                   <p class="sboxhead"> Other Amount </p>
                   <p class="amount">
@@ -170,7 +170,7 @@
                   </p>
                 </div>
               </label>
-            </label>
+            </div>
           </form>
         </div>
       </div>
@@ -178,9 +178,11 @@
         <div class="innerdetail1" *ngIf="selectedState == constFirst">
           <div class="innervalue">
             <p class="headline">Single EMI Due</p>
-            <p class="guideline"><img src="../assets/tick.png"> Payment towards 1 EMI Overdue</p>
-            <p class="guideline"><img src="../assets/tick.png"> Stabilizes your credit account by NPA mark remains</p>
-            <p class="guideline"><img src="../assets/tick.png"> We highly recommend NPA remark clean up,if you have
+            <p class="guideline"><img src="../assets/tick.png" class="greentick"> Payment towards 1 EMI Overdue</p>
+            <p class="guideline"><img src="../assets/tick.png" class="greentick"> Stabilizes your credit account by NPA
+              mark remains</p>
+            <p class="guideline"><img src="../assets/tick.png" class="greentick"> We highly recommend NPA remark clean
+              up,if you have
               funds</p>
           </div>
           <div class="innervalue1">
@@ -190,9 +192,11 @@
         <div class="innerdetail2" *ngIf="selectedState == constSecond">
           <div class="innervalue">
             <p class="headline">Total EMI Due-NPA remark Cleanup</p>
-            <p class="guideline"><img src="../assets/tick.png"> No more 'NPA' remark on CIBIL report</p>
-            <p class="guideline"><img src="../assets/tick.png"> Restoration of your loan benefits</p>
-            <p class="guideline"><img src="../assets/tick.png"> We highly recommend this clean up, if you have funds</p>
+            <p class="guideline"><img src="../assets/tick.png" class="greentick"> No more 'NPA' remark on CIBIL report
+            </p>
+            <p class="guideline"><img src="../assets/tick.png" class="greentick"> Restoration of your loan benefits</p>
+            <p class="guideline"><img src="../assets/tick.png" class="greentick"> We highly recommend this clean up, if
+              you have funds</p>
           </div>
           <div class="innervalue1">
             <button _ngcontent-serverapp-c5="" class="payNowBtn ng-star-inserted">Pay Total</button>
@@ -201,8 +205,10 @@
         <div class="innerdetail3" *ngIf="selectedState == constThird">
           <div class="innervalue">
             <p class="headline"> Close account - NPA remark Cleanup</p>
-            <p class="guideline"><img src="../assets/tick.png"> Close your loan account compleltely</p>
-            <p class="guideline"><img src="../assets/tick.png"> No more 'NPA' remark on CIBIL report</p>
+            <p class="guideline"><img src="../assets/tick.png" class="greentick"> Close your loan account compleltely
+            </p>
+            <p class="guideline"><img src="../assets/tick.png" class="greentick"> No more 'NPA' remark on CIBIL report
+            </p>
           </div>
           <div class="innervalue1">
             <button _ngcontent-serverapp-c5="" class="payNowBtn ng-star-inserted">Pay Total</button>
@@ -211,17 +217,21 @@
         <div class="innerdetail4" *ngIf="selectedState == constFourth">
           <div class="innervalue">
             <p class="headline">Settle Account</p>
-            <p class="guideline"><img src="../assets/tick.png"> Stop your CIBIL score decline</p>
-            <p class="guideline"><img src="../assets/tick.png"> Stop additional interest levied on your account</p>
-            <p class="guideline"><img src="../assets/tick.png"> Choose this option only in case of financial strain</p>
+            <p class="guideline"><img src="../assets/tick.png" class="greentick"> Stop your CIBIL score decline</p>
+            <p class="guideline"><img src="../assets/tick.png" class="greentick"> Stop additional interest levied on
+              your account</p>
+            <p class="guideline"><img src="../assets/tick.png" class="greentick"> Choose this option only in case of
+              financial strain</p>
           </div>
         </div>
         <div class="innerdetail4" *ngIf="selectedState == constFifth">
           <div class="innervalue">
             <p class="headline">Other Amount</p>
-            <p class="guideline"><img src="../assets/tick.png"> This amount will be adjusted against the principle
+            <p class="guideline"><img src="../assets/tick.png" class="greentick"> This amount will be adjusted against
+              the principle
               outstanding</p>
-            <p class="guideline"><img src="../assets/tick.png"> Added interest and late payment charges may continue to
+            <p class="guideline"><img src="../assets/tick.png" class="greentick"> Added interest and late payment
+              charges may continue to
               levy</p>
           </div>
         </div>
