@@ -8,7 +8,7 @@ export class AppComponent {
   title = 'PaymentBank';
   open: boolean = false;
   values = [ 560, 580, 585, 575, 538];
-  value1: number;
+  value1: string;
   selectedState: string = "first";
   constFirst = "first";
   constSecond = "second";
@@ -17,7 +17,7 @@ export class AppComponent {
   constFifth = "fifth";
   selectedPane(state: string , idx:number) {
     this.selectedState = state;
-    this.value1 = this.values[idx];
+    this.value1 = `${this.values[idx]}`;
   }
   openGlobe(){
     this.open = !this.open;

@@ -10,18 +10,8 @@
         </div>
       </div>
       <p class="account"> YOUR CREDIT ACCOUNTS </p>
-      <div class="cardslider">
-        <div class="slider1">
+    
 
-        </div>
-        <div class="slider2">
-
-        </div>
-        <div class="slider3">
-
-        </div>
-        <div class="slider4"></div>
-      </div>
     </div>
     <div class="col-md-8 box2">
       <div class="row inside">
@@ -35,7 +25,7 @@
             <span class="tabsHeader"> Have a query ? </span>
             <span class="tabsHeader"> FAQs </span>
             <span class="tabsHeader" (click)="openGlobe()">
-              <i class='fa fa-globe fa-2x' style="color: #5b5a99"></i>
+              <i class='fa fa-globe fa-2x' style="color: #5b5a99; cursor:pointer;"></i>
             </span>
             <div *ngIf="open" class="dropdown-content">
               <div class="col-md-4">
@@ -116,7 +106,7 @@
         </div>
         <br>
         <div class="amchart">
-         <app-amchart [value2]="value1"></app-amchart>
+         <app-amchart [value2]="'value1'"></app-amchart>
         </div>
         <p class="creditscore">YOUR CREDIT SCORE</p>
 

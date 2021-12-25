@@ -2,18 +2,21 @@ import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import * as am5 from "@amcharts/amcharts5";
 import * as am5xy from "@amcharts/amcharts5/xy";
 import am5themes_Animated from "@amcharts/amcharts5/themes/Animated";
-
-
 @Component({
   selector: 'app-amchart',
   templateUrl: './amchart.component.html',
   styleUrls: ['./amchart.component.css']
 })
 export class AmchartComponent implements OnInit {
-  @Input() value2: any ;
-  constructor() {
+  @Input() value2: string;
+
+  submit(){
+   
+  }
+  
+  ngOnInit(): void {
     console.log(this.value2);
-    let root = am5.Root.new("chartdiv");
+   let root = am5.Root.new("chartdiv");
     root.setThemes([
       am5themes_Animated.new(root)
     ]);
@@ -41,14 +44,14 @@ export class AmchartComponent implements OnInit {
           fill: colorSet.getIndex(15),
         },
         bulletSettings: {
-          fill: colorSet.getIndex(0)
+          fill: colorSet.getIndex(13)
         }
       },
       {
         year: "DEC'21",
         value: 565,
         bulletSettings: {
-          fill: colorSet.getIndex(0)
+          fill: colorSet.getIndex(13)
         },
         fillSettings: {
           fill: colorSet.getIndex(6),
@@ -68,7 +71,7 @@ export class AmchartComponent implements OnInit {
           fill: colorSet.getIndex(8),
         },
         bulletSettings: {
-          fill: colorSet.getIndex(0)
+          fill: colorSet.getIndex(13)
         }
       },
 
@@ -149,9 +152,6 @@ export class AmchartComponent implements OnInit {
 
     }));
     chart.appear(1000, 100);
-  }
-
-  ngOnInit(): void {
   }
 
 
