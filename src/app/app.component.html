@@ -106,13 +106,13 @@
         </div>
         <br>
         <div class="amchart">
-         <app-amchart [value2]="'value1'"></app-amchart>
+         <app-amchart [value2]="value1"></app-amchart>
         </div>
         <p class="creditscore">YOUR CREDIT SCORE</p>
 
         <div class="radiobutton">
           <form class="formdata">
-            <div class="radio-cont ng-star-inserted" (click)="selectedPane(constFirst,0)">
+            <div class="radio-cont ng-star-inserted" (click)="selectedPane(constFirst,0)" >
               <input type="radio" class="radio-selector" id="a2" name="date">
               <label for="a2" class="checkmark">
                 <div class="div" [ngClass]="{'abc': selectedState == constFirst}"></div>

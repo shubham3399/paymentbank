@@ -8,15 +8,10 @@ import am5themes_Animated from "@amcharts/amcharts5/themes/Animated";
   styleUrls: ['./amchart.component.css']
 })
 export class AmchartComponent implements OnInit {
-  @Input() value2: string;
-
-  submit(){
-   
-  }
-  
-  ngOnInit(): void {
+  @Input() value2: any;
+  ngAfterViewInit() {
     console.log(this.value2);
-   let root = am5.Root.new("chartdiv");
+    let root = am5.Root.new("chartdiv");
     root.setThemes([
       am5themes_Animated.new(root)
     ]);
@@ -152,6 +147,9 @@ export class AmchartComponent implements OnInit {
 
     }));
     chart.appear(1000, 100);
+
+  }
+  ngOnInit(): void {
   }
 
 
