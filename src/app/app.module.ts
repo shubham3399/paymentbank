@@ -3,11 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AmchartComponent } from './amchart/amchart.component';
+import { FeaturesComponent } from './features/features.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AmchartComponent
+    AmchartComponent,
+    FeaturesComponent
   ],
   imports: [
     BrowserModule,

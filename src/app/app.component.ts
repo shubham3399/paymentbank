@@ -6,21 +6,6 @@ import { Component,Input} from '@angular/core';
 })
 export class AppComponent {
   title = 'PaymentBank';
-  open: boolean = false;
-  values = [ 560, 580, 585, 575, 538];
-  value1: number;
-  selectedState: string = "first";
-  constFirst = "first";
-  constSecond = "second";
-  constThird = "third";
-  constFourth = "fourth";
-  constFifth = "fifth";
-  selectedPane(state: string , idx:number) {
-    this.selectedState = state;
-    this.value1 = this.values[idx];
-  }
-  openGlobe(){
-    this.open = !this.open;
-  }
+  
   
 }

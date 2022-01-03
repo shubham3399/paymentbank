@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild, OnChanges, SimpleChanges } from '@angular/core';
 import * as am5 from "@amcharts/amcharts5";
 import * as am5xy from "@amcharts/amcharts5/xy";
 import am5themes_Animated from "@amcharts/amcharts5/themes/Animated";
@@ -7,10 +7,11 @@ import am5themes_Animated from "@amcharts/amcharts5/themes/Animated";
   templateUrl: './amchart.component.html',
   styleUrls: ['./amchart.component.css']
 })
-export class AmchartComponent implements OnInit {
+export class AmchartComponent implements OnChanges {
   @Input() value2: any;
-  ngAfterViewInit() {
-    console.log(this.value2);
+
+
+    submit(value2: SimpleChanges) {
     let root = am5.Root.new("chartdiv");
     root.setThemes([
       am5themes_Animated.new(root)
@@ -72,7 +73,7 @@ export class AmchartComponent implements OnInit {
 
       {
         year: "FEB'21",
-        value: this.value2,
+        value: value2.currentValue,
         bulletSettings: {
           fill: colorSet.getIndex(12)
         },
@@ -148,6 +149,12 @@ export class AmchartComponent implements OnInit {
     }));
     chart.appear(1000, 100);
 
+  }
+
+  
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log('OnChanges', changes);
+    this.submit(changes);
   }
   ngOnInit(): void {
   }
