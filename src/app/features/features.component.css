@@ -91,7 +91,7 @@
 }
 
 #chartdiv {
-    width: 100%;
+    width: 95%;
     height: 340px;
     color: white;
 }
@@ -99,7 +99,7 @@
 .radio-cont {
     display: block;
     position: relative;
-    height: 80px;
+    height: 75px;
     margin-bottom: 24px;
     cursor: pointer;
     font-size: 15px;  
@@ -111,7 +111,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: 95%;
+    width: 98%;
     color: #fff;
     border: solid 2px rgba(244, 244, 244, 0.1);
     border-radius: 3px;
@@ -177,11 +177,11 @@ input::-webkit-inner-spin-button {
 }
 .graph{
     background-color: rgba(255, 255, 255, 0.02);
-    margin: 30px 10px 10px;
+    margin: 30px 20px 0px;
     border-radius: 10px;
 }
 .lower-para{
-    padding:0px 0px 0px 20px;
+    padding:20px 0px 0px 20px;
     border: solid 2px rgba(244, 244, 244, 0.1);
     border-radius: 5px;
     border-top: none;
@@ -250,45 +250,46 @@ input::-webkit-inner-spin-button {
 .greentick{
     padding:0px 10px 0px 0px;
 }
-.card-parent{
-    height:200px;
-    width:100%;
-    overflow: hidden;
-    padding:0px 0px 0px 30px;
+.card-container{
+    position: relative;
+    height: 100vh;
+    padding: 0px 0px 0px 30px;
+    overflow:hidden;
     transition:height 2s ease-in-out;
-}
-.card-parent:hover{
-    height:600px;
-}
-.card1{
-    height:180px;
-    background-repeat: no-repeat;
-    background-image: url(/assets/cardface.png);
-    width:100%;
-    margin-top:10px;
-}
-.card2{
-    height:180px;
-    background-repeat: no-repeat;
-    background-image: url(/assets/cardface.png);
-    width:100%;
-    margin-top:10px;
-}
-.card3{
-    height:180px;
-    background-repeat: no-repeat;
-    background-image: url(/assets/cardface.png);
-    width:100%;
-    margin-top:10px;
-}
-.status{
-    font-size: 14px;
-    background: rgb(255 255 255 / .2);
-    padding: 7px 10px;
-    border-radius: 7px;
-    font-weight: 600;
     cursor: pointer;
+  }
+  .card-container:hover{
+    height:400vh;
 }
-.data{
-    padding:70px 90px 0px 35px;
-}
+  .card1{
+    position: absolute;
+    top:0%;
+    z-index: 1;
+    backdrop-filter: blur(48px) saturate(100%);
+    opacity: 70%;
+  }
+  .card2{
+    position: absolute;
+    top: 8%;
+    z-index: 2;
+    backdrop-filter: blur(48px) saturate(100%);
+    opacity: 70%;
+  }
+  .card3{
+    position: absolute;
+    top: 16%;
+    z-index: 3;
+    backdrop-filter: blur(48px) saturate(100%);
+    opacity: 70%;
+  }
+ .card4{
+    position: absolute;
+    width: 346px;
+    top: 24%;
+    z-index: 4;
+    border-radius: 8px;
+  }
+ 
+  .box{
+      border:1px solid black;
+  }

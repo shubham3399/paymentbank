@@ -9,26 +9,27 @@ import am5themes_Animated from "@amcharts/amcharts5/themes/Animated";
 })
 export class AmchartComponent implements OnChanges {
   @Input() value2: any;
+  
+  public root = am5.Root.new("chartdiv");
 
-
-    submit(value2: SimpleChanges) {
-    let root = am5.Root.new("chartdiv");
-    root.setThemes([
-      am5themes_Animated.new(root)
+  submit(value2: SimpleChanges) {
+    console.log(typeof (value2));
+    this.root.setThemes([
+      am5themes_Animated.new(this.root)
     ]);
-    let chart = root.container.children.push(am5xy.XYChart.new(root, {
+    let chart = this.root.container.children.push(am5xy.XYChart.new(this.root, {
       panX: true,
       panY: true,
       wheelX: "panX",
       wheelY: "zoomX",
-      layout: root.verticalLayout
+      layout: this.root.verticalLayout
     }));
-    let cursor = chart.set("cursor", am5xy.XYCursor.new(root, {
+    let cursor = chart.set("cursor", am5xy.XYCursor.new(this.root, {
       behavior: "none"
     }));
     cursor.lineY.set("visible", false);
 
-    let colorSet = am5.ColorSet.new(root, {});
+    let colorSet = am5.ColorSet.new(this.root, {});
     let data = [
       {
         year: "NOV'21",
@@ -88,32 +89,32 @@ export class AmchartComponent implements OnChanges {
         year: "APR' 21"
       }
     ];
-    let xRenderer = am5xy.AxisRendererX.new(root, {});
+    let xRenderer = am5xy.AxisRendererX.new(this.root, {});
     xRenderer.grid.template.set("location", 0.5);
     xRenderer.labels.template.setAll({
       location: 0.5,
       multiLocation: 0.5
     });
 
-    let xAxis = chart.xAxes.push(am5xy.CategoryAxis.new(root, {
+    let xAxis = chart.xAxes.push(am5xy.CategoryAxis.new(this.root, {
       categoryField: "year",
       renderer: xRenderer,
-      tooltip: am5.Tooltip.new(root, {})
+      tooltip: am5.Tooltip.new(this.root, {})
     }));
 
     xAxis.data.setAll(data);
 
-    let yAxis = chart.yAxes.push(am5xy.ValueAxis.new(root, {
+    let yAxis = chart.yAxes.push(am5xy.ValueAxis.new(this.root, {
       maxPrecision: 0,
-      renderer: am5xy.AxisRendererY.new(root, {})
+      renderer: am5xy.AxisRendererY.new(this.root, {})
     }));
 
-    let series = chart.series.push(am5xy.LineSeries.new(root, {
+    let series = chart.series.push(am5xy.LineSeries.new(this.root, {
       xAxis: xAxis,
       yAxis: yAxis,
       valueYField: "value",
       categoryXField: "year",
-      tooltip: am5.Tooltip.new(root, {
+      tooltip: am5.Tooltip.new(this.root, {
         labelText: "{valueY}",
         dy: -5
       })
@@ -131,9 +132,9 @@ export class AmchartComponent implements OnChanges {
     });
 
 
-    series.bullets.push(function () {
-      return am5.Bullet.new(root, {
-        sprite: am5.Circle.new(root, {
+    series.bullets.push(() => {
+      return am5.Bullet.new(this.root, {
+        sprite: am5.Circle.new(this.root, {
           templateField: "bulletSettings",
           radius: 5
         })
@@ -142,22 +143,24 @@ export class AmchartComponent implements OnChanges {
 
     series.data.setAll(data);
     series.appear(1000);
-    chart.set("scrollbarX", am5.Scrollbar.new(root, {
+    chart.set("scrollbarX", am5.Scrollbar.new(this.root, {
       orientation: "horizontal",
       marginBottom: 20
 
     }));
     chart.appear(1000, 100);
-
+    this.root = this.root;
   }
 
-  
+
   ngOnChanges(changes: SimpleChanges): void {
     console.log('OnChanges', changes);
     this.submit(changes);
   }
   ngOnInit(): void {
+
   }
 
 
 }
+
