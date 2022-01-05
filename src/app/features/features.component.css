@@ -14,9 +14,13 @@
     align-items: center;
 }
 .logoimg{
-    width:45%;
+    width:40%;
     height:auto;
     margin:30px;
+}
+.rightside{
+    padding:0px 20px 0px 0px;
+    cursor: pointer;
 }
 .account{
     font-size: 16px;
@@ -89,13 +93,10 @@
 .nextpageicon{
     width:4%;
 }
-
 #chartdiv {
     width: 95%;
-    height: 340px;
-    color: white;
+    height: 280px;
 }
-
 .radio-cont {
     display: block;
     position: relative;
@@ -230,6 +231,7 @@ input::-webkit-inner-spin-button {
 .currentoutofftheory{
     font-size: 12px;
     text-align: end;
+    color: #03cd03;
 }
 .currentoutofftheory1{
     font-size: 12px;
@@ -259,7 +261,7 @@ input::-webkit-inner-spin-button {
     cursor: pointer;
   }
   .card-container:hover{
-    height:400vh;
+    height:380vh;
 }
   .card1{
     position: absolute;
@@ -289,7 +291,4 @@ input::-webkit-inner-spin-button {
     z-index: 4;
     border-radius: 8px;
   }
- 
-  .box{
-      border:1px solid black;
-  }
+
