@@ -9,7 +9,7 @@ import am5themes_Animated from "@amcharts/amcharts5/themes/Animated";
 })
 export class AmchartComponent implements OnChanges {
   @Input() value2: any;
-  
+  public figure: any = {};
   public root = am5.Root.new("chartdiv");
 
   submit(value2: SimpleChanges) {
@@ -74,7 +74,7 @@ export class AmchartComponent implements OnChanges {
 
       {
         year: "FEB'21",
-        value: value2.currentValue,
+        value: this.figure.value2,
         bulletSettings: {
           fill: colorSet.getIndex(12)
         },
@@ -155,12 +155,15 @@ export class AmchartComponent implements OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     console.log('OnChanges', changes);
+    for (let propName in changes) {
+      let change = changes[propName];
+      this.figure[propName] = change.currentValue
+    }
     this.submit(changes);
   }
   ngOnInit(): void {
 
   }
-
 
 }
 
